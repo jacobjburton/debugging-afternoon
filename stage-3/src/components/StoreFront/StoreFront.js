@@ -24,6 +24,7 @@ class StoreFront extends Component {
         })
         return (
             <div className="storefront-container">
+                {console.log(this.props.loading)}
                 {productDisplay}
             </div>
         )
@@ -31,6 +32,7 @@ class StoreFront extends Component {
 }
 
 function mapStateToProps(state) {
+    console.log(state, 'state on store')
     return {
         products: state.products,
         loading: state.loading,

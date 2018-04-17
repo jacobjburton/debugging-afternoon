@@ -2,26 +2,32 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './StoreFront.css';
 
-class StoreFront extends Component {
-    constructor() {
+class StoreFront extends Component 
+{
+    constructor() 
+    {
         super();
 
-        this.state = {
+        this.state = 
+        {
             products: []
         }
     }
 
-    componentDidMount() {
+    componentDidMount() 
+    {
         axios.get("https://practiceapi.devmountain.com/products/")
             .then((response) => {
                 this.setState({
-                    products: response
+                    products: response.data
                 })
             })
     }
 
-    render() {
-        let productDisplay = this.state.products.map((element, index) => {
+    render() 
+    {
+        let productDisplay = this.state.products.map((element, index) => 
+        {
             return (
                 <div className="product-container" key={index}>
                     <h2>{element.title}</h2>
@@ -31,7 +37,7 @@ class StoreFront extends Component {
                     <button onClick={() => this.props.addToShoppingCart(element)}>Purchase!</button>
                 </div>
             )
-        })
+        });
         return (
             <div className="storefront-container">
                 {productDisplay}
